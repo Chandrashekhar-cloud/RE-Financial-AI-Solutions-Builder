@@ -128,18 +128,14 @@ RE-Financial-AI-Solutions-Builder/
 
 ## Testing & Verification
 
-The attached project report records the following verification results. These are recorded results for the documented run and should not be interpreted as a guarantee that every test passes in every environment.
-
 | Check | Recorded result |
 |---|---:|
 | Python tests | 119 passed |
 | MCP server Jest tests | 639 passed across 35 suites |
-| Golden evaluation | 9/9 cases; 110/110 recorded score |
+| Golden evaluation | 9/9 cases; 110/110 |
 | Commentary evaluation | 100/100 |
 | Offline pipeline | Six stages passed |
 | Financial reconciliation | 126/126 checks passed |
-
-Test counts can change as the code and test suite evolve. If you update the repository after the submitted ZIP/report was created, keep the README and report explicit about which verification run each count describes.
 
 ## Documentation
 
