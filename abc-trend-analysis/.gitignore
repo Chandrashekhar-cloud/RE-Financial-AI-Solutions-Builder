@@ -1,0 +1,53 @@
+# Environment & Credential files
+.env
+.env.local
+.env.*.local
+*.env
+tokens.json
+credentials.json
+*.pem
+*.key
+*.token
+*.secret
+
+# Allow .env.example to be committed
+!.env.example
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Test, coverage, and linting caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local scratch and temporary outputs (do not ignore results/ deliverables)
+scratch/
+tmp/
+*.tmp

@@ -1,0 +1,134 @@
+{
+  "suite_description": "Golden evaluation cases for RE Financial Services Monthly Trend Analysis Skill",
+  "total_score": 110.0,
+  "max_possible_score": 110.0,
+  "percentage_score": 100.0,
+  "total_cases": 9,
+  "cases_passed": 9,
+  "cases_failed": 0,
+  "case_results": [
+    {
+      "id": "CASE-01",
+      "name": "Normal Complete Financial Data",
+      "weight": 10,
+      "score": 10.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 12",
+        "Months were reversed == False",
+        "Valid TTM count == 1",
+        "Failed reconciliation checks == 0",
+        "TTM revenue == 1770000.00"
+      ],
+      "assertions_failed": []
+    },
+    {
+      "id": "CASE-02",
+      "name": "Reversed Month Ordering",
+      "weight": 15,
+      "score": 15.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 12",
+        "Months were reversed == True",
+        "First period == 2025-01",
+        "Last period == 2025-12",
+        "Valid TTM count == 1",
+        "Failed reconciliation checks == 0"
+      ],
+      "assertions_failed": []
+    },
+    {
+      "id": "CASE-03",
+      "name": "December 2025 Accounting Anomaly",
+      "weight": 20,
+      "score": 20.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 12",
+        "Critical tax benefit anomaly flagged",
+        "Stock-based compensation warning flagged",
+        "Reported Op Income positive while Normalized Core Op Income is negative (non-profitable)"
+      ],
+      "assertions_failed": []
+    },
+    {
+      "id": "CASE-04",
+      "name": "11 Months vs 12 Months TTM Eligibility",
+      "weight": 15,
+      "score": 15.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 11",
+        "Valid TTM count == 0",
+        "TTM limitation flag emitted correctly"
+      ],
+      "assertions_failed": []
+    },
+    {
+      "id": "CASE-05",
+      "name": "Negative Line-Item Reversals",
+      "weight": 10,
+      "score": 10.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 12",
+        "Reversal flags emitted"
+      ],
+      "assertions_failed": []
+    },
+    {
+      "id": "CASE-06",
+      "name": "Missing Calendar Month Gap",
+      "weight": 10,
+      "score": 10.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 11",
+        "Valid TTM count == 0",
+        "Missing period 2025-03 detected"
+      ],
+      "assertions_failed": []
+    },
+    {
+      "id": "CASE-07",
+      "name": "Inconsistent Totals & Discrepancies",
+      "weight": 10,
+      "score": 10.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 12",
+        "Reconciliation failure caught as expected"
+      ],
+      "assertions_failed": []
+    },
+    {
+      "id": "CASE-08",
+      "name": "Different Company & Generalization",
+      "weight": 10,
+      "score": 10.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 12",
+        "Valid TTM count == 1",
+        "Failed reconciliation checks == 0",
+        "TTM revenue == 4392000.00"
+      ],
+      "assertions_failed": []
+    },
+    {
+      "id": "CASE-09",
+      "name": "Generalized Subtotals & Multi-Department Hierarchy",
+      "weight": 10,
+      "score": 10.0,
+      "status": "PASSED",
+      "assertions_passed": [
+        "Periods count == 12",
+        "Valid TTM count == 1",
+        "Failed reconciliation checks == 0",
+        "TTM revenue == 2400000.00"
+      ],
+      "assertions_failed": []
+    }
+  ]
+}

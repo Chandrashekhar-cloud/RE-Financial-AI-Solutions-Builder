@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2026-10-15T17:46:54.040866+00:00",
+  "provider": "openrouter",
+  "model": "openrouter/free",
+  "is_live_call": true,
+  "api_credential_status": "PRESENT",
+  "token_usage": {
+    "input_tokens": 11862,
+    "output_tokens": 3358
+  },
+  "validation_summary": {
+    "total_claims": 14,
+    "verified_claims": 14,
+    "invalid_claims": 0,
+    "unverified_claims": 0,
+    "accuracy_rate_pct": 100.0,
+    "status": "PASS",
+    "tested_numerical_claims": 14,
+    "verified_numerical_claims": 14,
+    "invalid_numerical_claims": 0,
+    "unverified_numerical_claims": 0,
+    "numerical_claim_accuracy_pct": 100.0,
+    "numerical_claims_status": "PASS",
+    "report_scope": "DISCRETE_NUMERICAL_CLAIMS_ONLY",
+    "qualitative_audit_status": "UNVERIFIED_PENDING_HUMAN_AUDIT",
+    "full_report_certification": "PARTIAL_VERIFICATION_NUMERICAL_ONLY",
+    "scope_disclaimer": "This deterministic audit validates ONLY discrete extracted numerical claims against analysis.json. General narrative prose, qualitative commentary, causal assertions (e.g. pricing power, seasonality, operational efficiency), and un-extracted figures are NOT verified by this numerical pass and require independent audit or commentary evaluation."
+  },
+  "artifacts": {
+    "commentary_markdown": "llm_commentary.md",
+    "structured_output_json": "llm_analysis_output.json",
+    "validation_results_json": "llm_validation_result.json",
+    "validation_report_markdown": "llm_validation_report.md"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "description": "Golden evaluation cases for RE Financial Services Monthly Trend Analysis Skill",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "CASE-01",
+      "name": "Normal Complete Financial Data",
+      "description": "Standard 12-month complete financial statements in chronological order with zero anomalies.",
+      "fixture": "evals/fixtures/case1_normal_12m.xlsx",
+      "expected": {
+        "periods_count": 12,
+        "months_were_reversed": false,
+        "valid_ttm_windows_count": 1,
+        "failed_reconciliation_count": 0,
+        "critical_anomalies_count": 0,
+        "revenue_latest": "175000.00",
+        "ttm_revenue": "1770000.00"
+      },
+      "weight": 10
+    },
+    {
+      "id": "CASE-02",
+      "name": "Reversed Month Ordering",
+      "description": "Financial statements stored in reverse chronological order (newest month to oldest). Engine must detect and restore chronological ordering.",
+      "fixture": "evals/fixtures/case2_reversed_order.xlsx",
+      "expected": {
+        "periods_count": 12,
+        "months_were_reversed": true,
+        "first_period_chronological": "2025-01",
+        "last_period_chronological": "2025-12",
+        "valid_ttm_windows_count": 1,
+        "failed_reconciliation_count": 0
+      },
+      "weight": 15
+    },
+    {
+      "id": "CASE-03",
+      "name": "December 2025 Accounting Anomaly",
+      "description": "Significant non-recurring tax benefit credit ($1M+) in operating expenses and unusual stock-based compensation spike. Engine must flag both entries and reject genuine profitability.",
+      "fixture": "evals/fixtures/case3_dec_2025_anomaly.xlsx",
+      "expected": {
+        "periods_count": 12,
+        "has_critical_tax_benefit_flag": true,
+        "has_sbc_warning_flag": true,
+        "dec_reported_operating_income_positive": true,
+        "dec_normalized_operating_income_negative": true,
+        "rejects_genuine_profitability": true
+      },
+      "weight": 20
+    },
+    {
+      "id": "CASE-04",
+      "name": "11 Months vs 12 Months TTM Eligibility",
+      "description": "Dataset containing exactly 11 consecutive months. TTM rolling window must NOT be calculated, and limitation flag must be emitted.",
+      "fixture": "evals/fixtures/case4_11_months.xlsx",
+      "expected": {
+        "periods_count": 11,
+        "valid_ttm_windows_count": 0,
+        "has_ttm_limitation_flag": true
+      },
+      "weight": 15
+    },
+    {
+      "id": "CASE-05",
+      "name": "Negative Line-Item Reversals",
+      "description": "Contains negative line item revenue and expense reversals. MoM % must divide by absolute value of prior month, and reversals must be flagged.",
+      "fixture": "evals/fixtures/case5_negative_reversals.xlsx",
+      "expected": {
+        "periods_count": 12,
+        "has_reversal_flags": true,
+        "mar_reversal_flagged": true
+      },
+      "weight": 10
+    },
+    {
+      "id": "CASE-06",
+      "name": "Missing Calendar Month Gap",
+      "description": "Financial dataset missing March 2025. Engine must detect missing month gap, flag it as CRITICAL, and suppress TTM windows spanning across the gap.",
+      "fixture": "evals/fixtures/case6_missing_month.xlsx",
+      "expected": {
+        "periods_count": 11,
+        "missing_period_detected": "2025-03",
+        "valid_ttm_windows_count": 0,
+        "has_critical_missing_period_flag": true
+      },
+      "weight": 10
+    },
+    {
+      "id": "CASE-07",
+      "name": "Inconsistent Totals & Discrepancies",
+      "description": "Worksheet where reported total operating expenses diverges from component sums. Engine must catch reconciliation discrepancy and flag CRITICAL error.",
+      "fixture": "evals/fixtures/case7_inconsistent_totals.xlsx",
+      "expected": {
+        "periods_count": 12,
+        "reconciliation_failure_detected": true,
+        "failed_period": "2025-06"
+      },
+      "weight": 10
+    },
+    {
+      "id": "CASE-08",
+      "name": "Different Company & Generalization",
+      "description": "Statements from Test Corp with entirely different chart of accounts. Engine must parse, calculate, and report without any hardcoded modifications.",
+      "fixture": "evals/fixtures/case8_different_company.xlsx",
+      "expected": {
+        "periods_count": 12,
+        "valid_ttm_windows_count": 1,
+        "failed_reconciliation_count": 0,
+        "ttm_revenue": "4392000.00"
+      },
+      "weight": 10
+    },
+    {
+      "id": "CASE-09",
+      "name": "Generalized Subtotals & Multi-Department Hierarchy",
+      "description": "Financial statements from Apex Dynamics with non-standard department subtotal names (Total Sales Salaries, Total Growth & Advertising). Engine must properly recognize subtotals and avoid double counting.",
+      "fixture": "evals/fixtures/case9_subtotals_generalization.xlsx",
+      "expected": {
+        "periods_count": 12,
+        "valid_ttm_windows_count": 1,
+        "failed_reconciliation_count": 0,
+        "ttm_revenue": "2400000.00"
+      },
+      "weight": 10
+    }
+  ]
+}

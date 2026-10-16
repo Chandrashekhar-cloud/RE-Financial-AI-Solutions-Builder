@@ -1,0 +1,18 @@
+.qodo
+
+node_modules
+dist
+coverage
+
+.env
+.env.local
+.env.*.local
+.env*.bak
+*.bak
+tokens.json
+
+start.cmd
+
+# Local capture output (may contain real account balances)
+capture-*.txt
+

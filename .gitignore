@@ -1,0 +1,21 @@
+# Environment & secrets
+.env
+.env.*
+*.bak
+tokens.json
+credentials.json
+*.pem
+*.key
+
+# Python & testing caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage/
+
+# Node dependencies
+node_modules/

@@ -1,0 +1,117 @@
+{
+  "executive_summary": "## A. Executive Summary\n\nABC Inc. completed an 18-month review period from January 2025 through June 2026, revealing a company in transition with improving top-line metrics but persistent operating challenges. Key findings include:\n\n- **Revenue Scale**: The company demonstrates steady growth, expanding from $167,587.50 in January 2025 to $196,289.41 in June 2026.\n- **Margin Stability**: Gross margins remained remarkably consistent, hovering around 70% throughout the period (ranging between 63.02% and 78.79%). Note: While margins reflect consistent markups over recorded COGS, attributing this stability to pricing power or cost control is an unverified hypothesis requiring finance-team confirmation regarding contractual pricing terms and product mix.\n- **Critical Audit Finding**: December 2025 shows a severe accounting anomaly with a $1,244,429.84 non-recurring tax benefit credit that artificially created reported profitability ($534,551.41 operating income) when the business actually lost $381,241.27 on a normalized basis.\n- **Data Integrity**: Clean dataset with no missing periods, 16/18 months matching baseline, and only 2 known sandbox transaction differences ($300.00 opex in Jan 2025 and $391.25 revenue in Jun 2026). Total audit flags / accounting anomalies identified: 12.\n- **Operational Reality**: Despite revenue growth, the company maintains significant operating losses. TTM reported operating losses contracted from -$3,415,098.97 (Dec 2025) to -$3,089,688.34 (Jun 2026), and normalized TTM core operating losses contracted from -$4,462,347.78 to -$4,064,285.76.\n\nThe financial performance demonstrates narrowing operating losses across the 7 valid TTM windows. Note: Management's hypothesis that this narrowing reflects operational efficiency gains requires finance-team confirmation of fixed-versus-variable cost scaling and discretionary spend trends.\n\n## B. Key Financial Metrics\n\n| Metric | Current (Jun 2026) | Key Trend |\n|--------|-------------------|-----------|\n| **Revenue** | $196,289.41 | Steady growth over 18-month review period |\n| **Gross Profit** | $137,816.97 | Strong 70.21% margin maintained |\n| **Gross Margin %** | 70.21% | Consistent 63.02% to 78.79% range, ~70% average |\n| **Reported Operating Income** | -$330,364.83 | Persistently negative, Mar 2026 peak -$275,994.10 |\n| **Normalized Operating Income** | -$330,500.72 | Slightly adjusted due to interest reclassification ($135.89) |\n| **TTM Revenue (Jun 2026)** | $2,304,366.76 | Expanded from Dec 2025 TTM window ($2,145,316.28) |\n| **TTM Gross Margin** | 69.47% | Stable margin within 69.42% to 70.93% range across all 7 TTM windows |\n| **TTM Reported Operating Loss** | -$3,089,688.34 | Contracted from -$3,415,098.97 in Dec 2025 |\n| **TTM Normalized Operating Loss** | -$4,064,285.76 | Contracted from -$4,462,347.78 in Dec 2025 ($398,062.02 loss reduction) |\n\n## C. Month-over-Month Variance Analysis\n\n### Revenue Movements (Most Significant)\n- **June 2026**: -$12,061.55 (-5.79% MoM) observed contraction following May 2026 ($208,350.96). Note: The dataset covers only 18 months with a single prior June (June 2025, which grew +12.49% MoM); attributing this decline to seasonality is an unverified hypothesis requiring multi-year sales data and finance confirmation.\n- **May 2026**: +$3,838.54 (+1.88% MoM) observed increase, achieving period peak monthly revenue of $208,350.96.\n- **April 2026**: +$13,044.23 (+6.81% MoM) observed month-over-month expansion.\n- **March 2026**: +$8,307.89 (+4.54% MoM) observed top-line growth.\n\n### Operating Expense Dynamics\n- **January 2026**: Dramatic reported opex increase of +$889,853.32 (+221.28% MoM) to $487,711.23, rebounding from December 2025's anomaly-distorted negative reported opex (-$402,142.09).\n- **November 2025**: -$58,820.74 (-12.28% MoM) expense reduction to $420,263.04.\n- **October 2025**: -$4,761.08 (-0.98% MoM) near stable expense base of $479,083.78.\n- **September 2025**: +$52,538.27 (+12.18% MoM) expense increase to $483,844.86.\n\n### Departmental Cost Shifts\n- **S&M Expenses**: Monthly core spend was $174,192.63 in December 2025 and $194,621.73 in January 2026.\n- **R&D Costs**: Stable across the review period ($130,581.48 in December 2025); any correlation with specific product release cycles is an unverified hypothesis pending engineering/finance review.\n- **G&A Expenses**: Included $208,876.48 in December 2025, with isolated vendor credits and accrual true-ups noted below.\n\n## D. TTM Trends (Where Valid)\n\nSeven consecutive 12-month rolling windows validate operational trends:\n\n- **Revenue Expansion**: Expanded from $2,145,316.28 (TTM Dec 2025) to $2,304,366.76 (TTM Jun 2026) across 7 valid rolling windows.\n- **Margin Stability**: Consistent 69.42% to 70.93% gross margin range across all 7 TTM periods (hypothesized pricing discipline requires confirmation).\n- **Reported Operating Leverage**: Reported operating losses contracted from -$3,415,098.97 (TTM Dec 2025) to -$3,089,688.34 (TTM Jun 2026). Note: Whether this loss contraction stems from expense management or expenditure deferral is an unverified hypothesis requiring departmental budget reviews.\n- **Normalized Operating Performance**: Normalized core operating losses contracted from -$4,462,347.78 (-$4.462M) in TTM Dec 2025 to -$4,064,285.76 (-$4.064M) in TTM Jun 2026 (a reduction of $398,062.02). Note: Attributing this loss contraction to operational efficiency gains is a working hypothesis requiring unit economics validation.\n\n## E. Anomalies & Data Integrity Review\n\n### Formula Reconciliation\n- **Status**: 126/126 checks reconciled \u2014 excellent system integrity.\n\n### Critical Accounting Anomalies\n- **December 2025 Tax Benefit**: $1,244,429.84 non-recurring credit creates artificial profitability.\n  - Reported Operating Income: +$534,551.41 (illusory profit).\n  - Normalized Operating Income: -$381,241.27 (true operational loss).\n  - Impact: Distorts reported performance by +$915,792.68.\n\n### Line-Item Reversals & Credits\n- **March 2026 Revenue Reversals**: Partnership Income (-$1,608.09) and White-Label (-$550.00).\n- **COGS Credits**: Referral Fees (-$1,800.00 in Apr 2025) and Sales Commission (-$3,629.87 in Mar 2026).\n- **Vendor Credits / Accrual True-Ups**: Bad Debts (-$1,806.24 in Jun 2026), Federal & State Taxes (-$566.33 in Mar 2026), Events & Conferences (-$3,216.91 in Apr 2025 and -$1,133.17 in Mar 2026).\n\n### Misclassifications\n- **Interest Expense**: $821.27 (Dec 2025) \u2014 presented in opex; GAAP requires reclassification below Operating Income.\n- **Interest Income**: -$6,844.64 (Dec 2025) \u2014 presented in opex; GAAP requires reclassification below Operating Income.\n\n### One-Time Charges\n- **Stock-Based Compensation**: $334,660.53 (Dec 2025) \u2014 non-cash compensation charge recorded in a single month (zero in all other 17 periods).\n\n## F. Reported vs. Normalized Operating Results\n\n### December 2025 Operating Income Bridge & Reconciliation\n\nIn December 2025, ABC Inc. reported positive operating income of +$534,551.41. However, this reported figure is severely distorted by non-recurring items and misclassifications embedded directly inside operating expenses. The deterministic engine reconciles reported operating income to normalized core operating results as follows:\n\n| Component / Line Item | Reported P&L Presentation | Accounting Nature / Treatment | Normalization Adjustment to Operating Income | Normalized Core P&L |\n|---|---|---|---|---|\n| **Gross Profit** | $132,409.32 | Core gross profit (Revenue $190,029.49 - COGS $57,620.17) | $0.00 | $132,409.32 |\n| **Core Departmental Opex** | $513,650.59 | S&M ($174,192.63) + R&D ($130,581.48) + G&A ($208,876.48) | $0.00 | $513,650.59 |\n| **Income Tax Benefit** | -$1,244,429.84 (credit in opex) | Non-recurring tax credit reducing reported opex | -$1,244,429.84 | $0.00 (excluded from core opex) |\n| **Stock-Based Compensation** | +$334,660.53 (charge in opex) | One-time non-cash compensation inflating reported opex | +$334,660.53 | $0.00 (excluded from core opex) |\n| **Non-Operating Net Interest** | -$6,023.37 (net credit in opex) | Interest Expense ($821.27) less Interest Income (-$6,844.64) | -$6,023.37 | $0.00 (reclassified below op. income) |\n| **Total Operating Expenses** | **-$402,142.09** | Reported negative opex | **+$915,792.68 (opex increase)** | **$513,650.59** |\n| **Operating Income / (Loss)** | **+$534,551.41** | Artificially positive | **-$915,792.68 (net adjustment)** | **-$381,241.27** |\n\n#### Reconciliation Arithmetic Walk:\n1. **Reported Operating Income**: `+$534,551.41`\n2. **Adjustment 1 (Income Tax Benefit)**: Remove the `-$1,244,429.84` credit from opex. Removing this credit restores true operational expenses (increasing opex by `$1,244,429.84`), which **reduces operating income by -$1,244,429.84**.\n3. **Adjustment 2 (Stock-Based Compensation)**: Remove the `+$334,660.53` one-off compensation expense from core opex. Removing this charge reduces opex, which **increases operating income by +$334,660.53**.\n4. **Adjustment 3 (Non-Operating Net Interest)**: Remove net interest of `-$6,023.37` (`$821.27` interest expense - `$6,844.64` interest income) from opex to reflect standard GAAP presentation below operating income. Removing this net negative expense increases opex by `$6,023.37`, which **reduces operating income by -$6,023.37**.\n5. **Net Normalization Adjustment**:\n   `-$1,244,429.84 + $334,660.53 - $6,023.37 = -$915,792.68`\n6. **Normalized Core Operating Income**:\n   `+$534,551.41 + (-$915,792.68) = -$381,241.27`\n   *(Note: If non-operating interest remains in opex, the normalized operating loss is `+$534,551.41 - $1,244,429.84 + $334,660.53 = -$375,217.90`)*.\n\n**Audit Verification**: The arithmetic matches the deterministic calculation engine (`scripts/engine.py`) exactly to the cent: Gross Profit ($132,409.32) minus Normalized Core Opex ($513,650.59) = -$381,241.27.\n\n## G. Questions for the Finance Team & Disclosures\n\n### Priority 1: Audit Confirmation\n1. **December 2025 Tax Treatment**: Please provide documentation supporting the $1,244,429.84 tax benefit credit. The tax credit requires tax CPA review or tax return reconciliation to verify whether it represents a legitimate carryback/carryforward adjustment, vendor refund, or regulatory incentive.\n2. **Stock-Based Compensation**: Detail the December 2025 SBC grant/revaluation. What triggered this one-time $334,660.53 expense?\n3. **March 2026 Revenue Reversals**: Provide credit memo documentation for Partnership Income (-$1,608.09) and White-Label (-$550.00) reversals. Were these customer billing corrections or return adjustments?\n\n### Priority 2: Operating Expense Review\n4. **Interest Classification**: Confirm proper accounting treatment for Interest Expense and Income. Should these be reclassified to Non-Operating section per GAAP?\n5. **Vendor Credit Follow-up**: Audit supporting credit memos and vendor schedules for negative entries in Bad Debts, Federal Taxes, and Events & Conferences to confirm whether they represent vendor rebates or accrual true-ups.\n\n### Priority 3: Mandatory Accounting & Data Disclosures\n6. **Data Limitations (Cash Flow vs. Operating Loss)**: The dataset is limited to the Profit and Loss statement; balance sheet and cash flow statements have been omitted. This analysis does not support a cash-burn calculation, as operating loss cannot be equated to cash burn without working capital and cash balance movements.\n7. **Cross-Dataset Baseline Comparison**: Comparison of QuickBooks data against the baseline Excel reference identified total variances: 7 across 2 periods (pre-existing developer sandbox sample bill ID 104 in Jan 2025 and sandbox sample invoice IDs 10 & 95 in Jun 2026). Total variance items identified: 7.\n8. **Unmapped Accounts Disclosure**: Unmapped accounts count: 0 (none identified; all line items were successfully classified into standard departments).",
+  "financial_claims": [
+    {
+      "claim_text": "January 2025 marked the beginning of the review period with revenue of ,587.50.",
+      "metric": "revenue",
+      "period": "2025-01",
+      "claimed_value": 167587.5,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    },
+    {
+      "claim_text": "June 2026 represents the final review period with revenue of ,289.41 and a gross margin of 70.21%.",
+      "metric": "revenue",
+      "period": "2026-06",
+      "claimed_value": 196289.41,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    },
+    {
+      "claim_text": "December 2025 shows reported operating income of ,551.41 due to a ,244,429.84 tax benefit credit.",
+      "metric": "operating_income",
+      "period": "2025-12",
+      "claimed_value": 534551.41,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    },
+    {
+      "claim_text": "December 2025 normalized operating income after removing the tax credit and SBC is -,241.27.",
+      "metric": "normalized_operating_income",
+      "period": "2025-12",
+      "claimed_value": -381241.27,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    },
+    {
+      "claim_text": "June 2026 TTM revenue reaches ,304,366.76 with a 69.47% gross margin.",
+      "metric": "revenue",
+      "period": "2026-06",
+      "claimed_value": 2304366.76,
+      "claimed_unit": "currency",
+      "is_ttm": true
+    },
+    {
+      "claim_text": "December 2025 TTM shows gross profit of ,521,584.03 with a 70.93% gross margin.",
+      "metric": "gross_profit",
+      "period": "2025-12",
+      "claimed_value": 1521584.03,
+      "claimed_unit": "currency",
+      "is_ttm": true
+    },
+    {
+      "claim_text": "June 2026 TTM reported operating loss is -,089,688.34, contracting from prior periods.",
+      "metric": "operating_income",
+      "period": "2026-06",
+      "claimed_value": -3089688.34,
+      "claimed_unit": "currency",
+      "is_ttm": true
+    },
+    {
+      "claim_text": "Total Operating Expenses in June 2025 were ,871.96.",
+      "metric": "total_opex",
+      "period": "2025-06",
+      "claimed_value": 497871.96,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    },
+    {
+      "claim_text": "December 2025 shows a critical non-recurring tax benefit credit of -,244,429.84 in operating expenses.",
+      "metric": "tax_benefit",
+      "period": "2025-12",
+      "claimed_value": -1244429.84,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    },
+    {
+      "claim_text": "December 2025 includes a one-time Stock-Based Compensation expense of ,660.53.",
+      "metric": "stock_based_compensation",
+      "period": "2025-12",
+      "claimed_value": 334660.53,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    },
+    {
+      "claim_text": "December 2025 TTM normalized operating income is -,462,347.78 (-.462M).",
+      "metric": "normalized_operating_income",
+      "period": "2025-12",
+      "claimed_value": -4462347.78,
+      "claimed_unit": "currency",
+      "is_ttm": true
+    },
+    {
+      "claim_text": "June 2026 TTM normalized operating income is -,064,285.76 (-.064M).",
+      "metric": "normalized_operating_income",
+      "period": "2026-06",
+      "claimed_value": -4064285.76,
+      "claimed_unit": "currency",
+      "is_ttm": true
+    },
+    {
+      "claim_text": "December 2025 normalized core operating expenses total ,650.59.",
+      "metric": "normalized_core_opex",
+      "period": "2025-12",
+      "claimed_value": 513650.59,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    },
+    {
+      "claim_text": "December 2025 reported total operating expenses were -,142.09.",
+      "metric": "total_opex",
+      "period": "2025-12",
+      "claimed_value": -402142.09,
+      "claimed_unit": "currency",
+      "is_ttm": false
+    }
+  ]
+}
