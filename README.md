@@ -130,7 +130,7 @@ RE-Financial-AI-Solutions-Builder/
 
 | Check | Recorded result |
 |---|---:|
-| Python tests | 119 passed |
+| Python tests | 119 passed *(131 after our subsequent code and test updates)* |
 | MCP server Jest tests | 639 passed across 35 suites |
 | Golden evaluation | 9/9 cases; 110/110 |
 | Commentary evaluation | 100/100 |
