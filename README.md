@@ -174,6 +174,17 @@ Live QuickBooks workflows require valid credentials and appropriate access. Sand
 - Read-only behavior depends on the implemented server safeguards and configured permissions; do not assume every available MCP operation is read-only.
 - AWS multi-tenant hosting and isolation are proposed architecture, not deployed infrastructure.
 
+## Updates After Initial Submission
+
+After the initial submission, follow-up work focused on LLM-assisted financial commentary and validation:
+
+- **LLM inference:** Ran the financial commentary workflow using a model accessed through OpenRouter.
+- **Numerical claim validation:** Checked 14 selected numerical claims against the generated structured financial analysis.
+- **Grounded output checks:** Used evaluation and validation workflows to assess numerical grounding and flag unsupported or unverified claims.
+- **Updated verification:** The Python test count changed from 119 in the earlier run to 131 after subsequent code and test updates. The MCP server test count remains 639.
+
+The LLM was used for inference and commentary, not trained as part of this project. These updates describe the later repository work; the original submitted ZIP and PDFs remain separate submission artifacts.
+
 ## Author
 
 **Chandrashekhar H S**
