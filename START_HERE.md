@@ -2,7 +2,7 @@
 
 ## Primary Reviewer Navigation Guide (START HERE)
 
-Welcome to the **RE Financial Services AI Solutions Builder** placement assignment submission. This repository provides a complete, production-grade financial trend analysis platform that transforms complex client financial workbooks into validated executive commentary, supported by a deterministic calculation engine, automated evaluation suites, an official read-only QuickBooks Online Model Context Protocol (MCP) server, and an enterprise multi-tenant cloud architecture specification.
+Welcome to the **RE Financial Services AI Solutions Builder** placement assignment submission. This repository provides a working prototype of a financial trend analysis workflow that transforms complex client financial workbooks into validated executive commentary, supported by a deterministic calculation engine, automated evaluation suites, an official QuickBooks Online Model Context Protocol (MCP) server with write tools disabled, and a proposed multi-client cloud architecture design (not deployed).
 
 ---
 
@@ -18,7 +18,7 @@ For the most efficient and structured evaluation (approximately 15–20 minutes)
    Inspect the canonical skill in [`abc-trend-analysis/.claude/skills/monthly-trend-analysis/SKILL.md`](abc-trend-analysis/.claude/skills/monthly-trend-analysis/SKILL.md), the calculation engine in [`abc-trend-analysis/scripts/engine.py`](abc-trend-analysis/scripts/engine.py), and the generated outputs in [`abc-trend-analysis/results/analysis.json`](abc-trend-analysis/results/analysis.json) and [`abc-trend-analysis/results/report.md`](abc-trend-analysis/results/report.md).
 4. **Step 4: Execute Task 3 Safe Offline Verification Commands (5 minutes)**  
    Run the single-command offline pipeline (`python scripts/run_pipeline.py --offline`), the automated test suite (`pytest`), and the golden evaluation harness (`python -m evals.run_evals`).
-5. **Step 5: Review Task 4 Enterprise Architecture Note (3 minutes)**  
+5. **Step 5: Review Task 4 Architecture Note (3 minutes)**  
    Open [`architecture.pdf`](architecture.pdf) at the root (exactly 1 A4 page) and the comprehensive technical companion [`abc-trend-analysis/docs/architecture.md`](abc-trend-analysis/docs/architecture.md) detailing ten-client scaling, tenant isolation, and credential boundaries.
 
 ---
