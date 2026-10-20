@@ -1,96 +1,124 @@
-<div align="center">
 
 # RE Financial AI Solutions Builder
 
-### AI-Powered Financial Intelligence with MCP & QuickBooks Online
+**Financial trend analysis with MCP and QuickBooks Online — working prototype**
 
-Connecting AI assistants with financial systems through intelligent tools, financial analysis, and automated validation.
-
-<br>
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![MCP](https://img.shields.io/badge/Model_Context_Protocol-6E56CF?style=for-the-badge)
-![MCP Server](https://img.shields.io/badge/MCP_Server-4B5563?style=for-the-badge)
-![Claude](https://img.shields.io/badge/Claude_AI-D97757?style=for-the-badge)
-![QuickBooks](https://img.shields.io/badge/QuickBooks_Online-2CA01C?style=for-the-badge&logo=intuit&logoColor=white)
-
-<br>
+Python does the math. Claude explains it. Every number in the commentary can be traced back to a structured JSON file.
 
 [Project Report](Project_Report.pdf) · [Architecture](architecture.pdf) · [Getting Started](START_HERE.md)
 
-</div>
-
----
-
 ## Overview
 
-An AI-assisted financial analysis prototype combining **Claude Desktop, Model Context Protocol (MCP), a QuickBooks Online MCP server, and a Python-based financial analysis pipeline**.
+A working prototype that combines Claude Desktop, the Model Context Protocol (MCP), a QuickBooks Online MCP server, and a Python financial analysis pipeline.
 
-The project demonstrates AI-to-tool communication, QuickBooks Sandbox report retrieval, deterministic financial calculations, trend analysis, anomaly checks, and automated evaluation.
+It demonstrates QuickBooks Sandbox report retrieval, deterministic financial calculations, trend analysis, anomaly checks, and automated evaluation of both numerical outputs and AI-generated commentary.
+
+## Quick Start (No Credentials Needed)
+
+```bash
+git clone https://github.com/Chandrashekhar-cloud/RE-Financial-AI-Solutions-Builder.git
+cd RE-Financial-AI-Solutions-Builder
+pip install -r abc-trend-analysis/requirements.txt
+python scripts/run_pipeline.py --offline
+```
+
+This command runs six stages:
+
+1. Read-only gate check.
+2. Saved QuickBooks P&L schema check.
+3. Calculation engine with baseline comparison.
+4. Output integrity check.
+5. Nine golden evaluation cases.
+6. Commentary grounding checks.
+
+The offline workflow uses the supplied workbook and saved sandbox data. It does not call Claude or QuickBooks live.
+
+See [START_HERE.md](START_HERE.md) for the full command list.
+
+## What Was Built and What Was Reused
+
+| Component | Status |
+|---|---|
+| Python calculation engine, adapters, reporter and CLI | Built in this project |
+| Claude Skill (`monthly-trend-analysis`) | Built in this project |
+| Golden cases, baseline regression check, commentary rubric and claim validator | Built in this project |
+| QuickBooks MCP server | Open-source Intuit server, configured with write, update and delete tools disabled. The server core is not my original work |
+| Multi-client AWS architecture | Proposed design only; not deployed |
 
 ## Key Features
 
 | Feature | Description |
 |---|---|
-| **Claude + MCP** | Connect Claude Desktop to supported financial tools through MCP |
-| **MCP Server** | Expose implemented QuickBooks capabilities through structured tool calls |
-| **QuickBooks Integration** | Retrieve company information and a read-only Profit & Loss report in the configured Sandbox environment |
-| **Financial Validation** | Check calculations and financial-data consistency |
-| **Trend Analysis** | Compare financial performance across reporting periods |
-| **Anomaly Detection** | Flag unusual financial patterns for review |
-| **AI-Assisted Analysis** | Generate commentary grounded in structured analysis outputs |
-| **Automated Testing** | Test the Python analysis workflow and MCP server |
-| **Reporting** | Generate analysis outputs and evaluation evidence |
+| Claude + MCP | Connect Claude Desktop to QuickBooks through a local MCP server |
+| QuickBooks Integration | Retrieve company information and a Profit & Loss report from a sandbox company |
+| Deterministic Engine | Decimal arithmetic; trailing-twelve-month calculations only when 12 consecutive months exist; missing values surfaced as warnings |
+| Financial Validation | Reconciliation checks across revenue, margins, expenses and income |
+| Anomaly Detection | Flags unusual patterns using configurable thresholds |
+| Grounded Commentary | Checks AI-generated commentary against structured analysis output |
+| Evaluation | Golden cases, regression baseline and a separate rubric for AI explanations |
 
 ## Architecture
 
-The project contains **two related but distinct workflows**. The MCP workflow demonstrates QuickBooks connectivity through Claude Desktop. The Python pipeline analyzes a workbook or saved/normalized report; it should not be interpreted as automatically receiving data from the MCP server unless a specific export/import step is configured.
+The project contains two related but distinct workflows.
+
+- **Workflow A — QuickBooks MCP connection:** Demonstrates connectivity between Claude Desktop and QuickBooks Online Sandbox through the MCP server.
+- **Workflow B — Financial trend analysis:** Processes a workbook or saved, normalized financial report through a deterministic Python pipeline.
+
+The Python pipeline does not automatically receive data from the MCP server unless an export and import step is configured.
 
 ```mermaid
 flowchart TB
-    subgraph MCP["Workflow A — QuickBooks MCP connection"]
+    subgraph MCP["Workflow A — QuickBooks MCP Connection"]
         U["User"] <--> CD["Claude Desktop"]
-        CD <--> MCP["Model Context Protocol"]
-        MCP <--> QMS["QuickBooks Online MCP Server"]
+        CD <--> PROTO["Model Context Protocol"]
+        PROTO <--> QMS["QuickBooks Online MCP Server"]
         QMS <--> API["Authentication and API Client"]
         API <--> QB["QuickBooks Online Sandbox API"]
-        QB --> EVID["Saved connection and report evidence"]
+        QB --> EVID["Saved Connection and Report Evidence"]
     end
 
-    subgraph PY["Workflow B — Financial trend analysis"]
-        INPUT["Workbook or saved/normalized financial report"]
-        INPUT --> NORM["Data normalization"]
-        NORM --> ENG["Deterministic Python calculation engine"]
-        ENG --> VAL["Reconciliation and validation"]
+    subgraph PY["Workflow B — Financial Trend Analysis"]
+        INPUT["Workbook or Saved/Normalized Financial Report"]
+        INPUT --> NORM["Data Normalization"]
+        NORM --> ENG["Deterministic Python Calculation Engine"]
+        ENG --> VAL["Reconciliation and Validation"]
         VAL --> OUT["analysis.json and report.md"]
-        OUT --> SKILL["Claude Skill / grounded commentary"]
-        SKILL --> FINAL["Insights and evaluation results"]
+        OUT --> SKILL["Claude Skill / Grounded Commentary"]
+        SKILL --> FINAL["Insights and Evaluation Results"]
     end
-
-    classDef client fill:#e8eaf6,stroke:#5c6bc0,color:#1a237e
-    classDef integration fill:#e8f5e9,stroke:#43a047,color:#1b5e20
-    classDef analysis fill:#fff3e0,stroke:#fb8c00,color:#7f3b00
-
-    class U,CD,MCP client
-    class QMS,API,QB,EVID integration
-    class INPUT,NORM,ENG,VAL,OUT,SKILL,FINAL analysis
 ```
 
-*The diagram separates the demonstrated MCP connection from the Python analysis pipeline. The documented AWS multi-tenant architecture is a proposed roadmap, not a deployed production service.*
+The diagram separates the demonstrated MCP connection from the Python analysis pipeline. The AWS multi-tenant architecture is a proposal, not a deployed service.
+
+## Tested and Not Tested
+
+| Claim | Status | Detail |
+|---|---|---|
+| Offline pipeline | Tested | Six stages run through `python scripts/run_pipeline.py --offline` |
+| Golden evaluation | Tested | 9/9 cases; score of 110/110; no regression against the saved baseline |
+| Commentary evaluation | Tested | 100/100 on a custom four-part rubric; not an independent audit |
+| Financial reconciliation | Tested | 126/126 checks: seven metrics across 18 periods, plus selected cross-checks; not an audit |
+| Python tests at original submission | Tested | 119 tests |
+| Python tests after later updates | Tested | 131 tests |
+| MCP server Jest tests | Tested | 639 tests across 35 suites, exercising the configured open-source server code |
+| QuickBooks Sandbox connection | Demonstrated | Completed through Claude Desktop against the sandbox company. Evidence is in `abc-trend-analysis/docs/screenshots/` and `abc-trend-analysis/results/` |
+| Read-only behavior | Partly tested | Write, update and delete tools are not registered. This is an application-level guard, not proof that the OAuth token itself is read-only |
+| Live pipeline mode | Not part of verified run | Requires sandbox credentials; verified results are from offline execution |
+| Second real company | Not tested | A different-company case exists only as a synthetic golden case |
+| A 19th month of data | Not tested | TTM calculations require 12 consecutive months |
+| AWS multi-client deployment | Not built | Proposed architecture only |
 
 ## Technology Stack
 
 | Technology | Role |
 |---|---|
-| Python | Financial analysis, validation, and reporting |
+| Python | Financial analysis, validation and reporting |
 | TypeScript | MCP server implementation |
-| Model Context Protocol (MCP) | Standardized communication between an AI client and tools |
-| Claude Desktop | AI assistant interface for the MCP demonstration |
-| QuickBooks Online Sandbox | Configured financial-system integration environment |
-| Pytest | Python test suite |
-| Jest | MCP server test suite |
-| GitHub | Version control and project documentation |
+| Model Context Protocol | Standard communication between Claude and tools |
+| Claude Desktop | AI interface for the MCP demonstration |
+| QuickBooks Online Sandbox | Financial system integration environment |
+| Pytest | Python testing |
+| Jest | MCP server testing |
 
 ## Project Structure
 
@@ -115,75 +143,55 @@ RE-Financial-AI-Solutions-Builder/
 └── scripts/
 ```
 
+### Component Responsibilities
+
 | Component | Responsibility |
 |---|---|
-| `abc-trend-analysis/` | Financial analysis, normalization, validation, and reporting |
+| `abc-trend-analysis/` | Analysis, normalization, validation and reporting |
 | `abc-trend-analysis/tests/` | Python tests |
-| `abc-trend-analysis/evals/` | Golden-case and commentary evaluation workflows |
-| `abc-trend-analysis/docs/` | Technical documentation and screenshots |
+| `abc-trend-analysis/evals/` | Golden-case and commentary evaluation |
+| `abc-trend-analysis/docs/` | Documentation and screenshots |
 | `abc-trend-analysis/results/` | Generated analysis and evaluation artifacts |
-| `quickbooks-online-mcp-server/` | QuickBooks MCP server integration |
-| `quickbooks-online-mcp-server/src/` | MCP tools, handlers, API client, and server |
-| `scripts/` | Project utilities and pipeline launchers |
-
-## Testing & Verification
-
-| Check | Recorded result |
-|---|---:|
-| Python tests | 119 passed *(131 after our subsequent code and test updates)* |
-| MCP server Jest tests | 639 passed across 35 suites |
-| Golden evaluation | 9/9 cases; 110/110 |
-| Commentary evaluation | 100/100 |
-| Offline pipeline | Six stages passed |
-| Financial reconciliation | 126/126 checks passed |
+| `quickbooks-online-mcp-server/` | QuickBooks MCP server |
+| `scripts/` | Pipeline launchers and utilities |
 
 ## Documentation
 
 | Resource | Description |
 |---|---|
-| [Project Report](Project_Report.pdf) | Implementation, methodology, and recorded verification |
-| [Architecture Document](architecture.pdf) | Prototype architecture, security considerations, and proposed scaling roadmap |
-| [Getting Started](START_HERE.md) | Project setup instructions |
-| [Financial Analysis Documentation](abc-trend-analysis/README.md) | Analysis pipeline |
-| [MCP Server Documentation](quickbooks-online-mcp-server/README.md) | QuickBooks MCP integration |
-| [Screenshots](abc-trend-analysis/docs/screenshots/) | Demonstration evidence |
-| [Evaluation Results](abc-trend-analysis/results/) | Analysis and evaluation artifacts |
+| [Project Report](Project_Report.pdf) | Implementation, methodology and recorded verification |
+| [Architecture Document](architecture.pdf) | Prototype architecture, security considerations and proposed scaling design |
+| [Getting Started](START_HERE.md) | Setup instructions and command list |
+| Financial Analysis Documentation | Analysis pipeline documentation |
+| MCP Server Documentation | QuickBooks MCP server documentation |
+| Screenshots | Demonstration evidence |
+| Evaluation Results | Analysis and evaluation artifacts |
 
-## Getting Started
+## Security and Scope
 
-**Prerequisites:** Python, Node.js, npm, and credentials configured for any live QuickBooks workflow.
-
-```bash
-git clone https://github.com/Chandrashekhar-cloud/RE-Financial-AI-Solutions-Builder.git
-cd RE-Financial-AI-Solutions-Builder
-```
-
-Follow [START_HERE.md](START_HERE.md) for the project-specific setup instructions.
-
-Configure credentials locally and consult each component's documentation for dependencies and execution commands. Use the offline pipeline when you want to reproduce the financial analysis without changing QuickBooks Sandbox data.
-
-Live QuickBooks workflows require valid credentials and appropriate access. Sandbox usage depends on the configured environment.
-
-## Security & Scope
-
-- Never commit `.env` files, OAuth tokens, API secrets, or private keys.
+- Never commit `.env` files, OAuth tokens, API secrets or private keys.
 - Do not publish confidential financial statements or customer information.
-- Review screenshots, reports, and generated data files before publishing.
+- Review screenshots, reports and generated data files before publishing.
 - Use appropriately scoped credentials when connecting to QuickBooks Online.
-- Confirm whether the configured QuickBooks environment is Sandbox or production before running operations.
-- Read-only behavior depends on the implemented server safeguards and configured permissions; do not assume every available MCP operation is read-only.
-- AWS multi-tenant hosting and isolation are proposed architecture, not deployed infrastructure.
+- Confirm that the configured QuickBooks environment is Sandbox before running operations.
+- Write, update and delete tools are disabled by configuration. This is an application-level control, not a guarantee of token-level read-only access.
+- Defense in depth requires appropriate OAuth scope restrictions at Intuit and independent verification of every exposed tool.
+- `abc-trend-analysis/scripts/tools/seed_qbo_sandbox.py` is an optional sandbox importer for the stretch goal. It is not part of the read-only demonstration path.
+- AWS multi-tenant hosting and isolation are proposed, not deployed.
 
 ## Updates After Initial Submission
 
-After the initial submission, follow-up work focused on LLM-assisted financial commentary and validation:
+Follow-up work focused on LLM-assisted commentary and validation.
 
-- **LLM inference:** Ran the financial commentary workflow using a model accessed through OpenRouter.
-- **Numerical claim validation:** Checked 14 selected numerical claims against the generated structured financial analysis.
-- **Grounded output checks:** Used evaluation and validation workflows to assess numerical grounding and flag unsupported or unverified claims.
-- **Updated verification:** The Python test count changed from 119 in the earlier run to 131 after subsequent code and test updates. The MCP server test count remains 639.
+- **LLM Inference:** Ran the commentary workflow using a model accessed through OpenRouter.
+- **Numerical Claim Validation:** Checked 14 selected numerical claims against the generated structured analysis.
+- **Grounded Output Checks:** Used evaluation and validation workflows to assess numerical grounding and flag unsupported claims.
+- **Python Test Count:** Increased from 119 at original submission to 131 after subsequent updates.
+- **MCP Server Tests:** Remain at 639 tests across 35 suites.
 
-The LLM was used for inference and commentary, not trained as part of this project. These updates describe the later repository work; the original submitted ZIP and PDFs remain separate submission artifacts.
+The model was used for inference and commentary only. No model training was performed as part of this project.
+
+The original submitted ZIP file and PDF documents remain separate submission artifacts.
 
 ## Author
 
@@ -192,13 +200,3 @@ The LLM was used for inference and commentary, not trained as part of this proje
 Computer Science Engineering | AI & ML
 
 [GitHub Profile](https://github.com/Chandrashekhar-cloud)
-
----
-
-<div align="center">
-
-**AI · MCP · Claude · QuickBooks · Financial Intelligence**
-
-*Connecting AI with real-world financial workflows.*
-
-</div>
